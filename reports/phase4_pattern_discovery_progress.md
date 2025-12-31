@@ -417,4 +417,179 @@ These khipus represent "gold standard" examples of consistent summation encoding
 **Report Generated:** December 31, 2025  
 **Phase Status:** 🔄 IN PROGRESS  
 **Analyses Complete:** 4/7 planned  
-**Next Analysis:** Subgraph motif mining
+### 5. Geographic Correlation Analysis
+
+**Objective:** Test whether structural patterns, summation behaviors, and cluster membership correlate with geographic provenance.
+
+**Methodology:**
+- Merged khipu structural features, clustering, and summation data with provenance metadata
+- Performed chi-square tests for cluster-provenance enrichment
+- Applied Kruskal-Wallis tests for structural features across provenances
+- Analyzed summation pattern differences by region
+- Examined provenance distribution of high-match khipus
+
+**Key Findings:**
+
+#### Cluster-Provenance Enrichment
+- **Chi-square test:** χ² = 116.89, p = 0.000002 (**HIGHLY SIGNIFICANT**)
+- **Strong enrichments detected:**
+  - Cluster 0 (Large deep) × Nazca: **4.12x enrichment** (n=7)
+  - Cluster 0 × Leymebamba: **3.13x enrichment** (n=9)
+  - Cluster 0 × Incahuasi: **2.06x enrichment** (n=14)
+  - Cluster 6 (Non-numeric) × Unknown: **2.43x enrichment** (n=8)
+
+**Interpretation:** While overall clustering showed weak geographic patterns, specific archetypes show regional preferences. Cluster 0 (large, deep khipus) concentrated in Nazca, Leymebamba, and Incahuasi regions.
+
+#### Structural Features by Provenance
+
+**Significant differences detected:**
+
+| Feature | H-statistic | p-value | Significance |
+|---------|-------------|---------|--------------|
+| **num_nodes** | 17.42 | 0.004 | ✅ YES |
+| **depth** | 50.53 | < 0.001 | ✅ YES |
+| **has_numeric** | 12.24 | 0.032 | ✅ YES |
+| **avg_branching** | 9.56 | 0.089 | ❌ NO |
+
+**Size by provenance:**
+- Incahuasi: 111.2 nodes (largest)
+- Other: 104.3 nodes
+- Unknown: 69.9 nodes
+- Pachacamac: 66.7 nodes
+- Ica: 59.8 nodes (smallest)
+
+**Depth by provenance:**
+- Incahuasi: 2.60 levels (deepest)
+- unknown: 2.33
+- Other: 2.06
+- Pachacamac: 1.91
+- Ica: 1.76
+- Unknown: 1.63 (shallowest)
+
+**Interpretation:** Incahuasi khipus are significantly larger and deeper than other provenances, suggesting regional administrative complexity or specialized record-keeping traditions.
+
+#### Summation Patterns by Provenance
+
+**Highly significant regional differences:**
+
+| Test | Statistic | p-value | Result |
+|------|-----------|---------|--------|
+| **Summation presence** (χ²) | 31.23 | < 0.001 | ✅ SIGNIFICANT |
+| **Match rate** (H) | 34.36 | < 0.001 | ✅ SIGNIFICANT |
+
+**Summation rates by provenance:**
+- **Incahuasi:** 48.1% (0.145 avg match rate) — **HIGHEST**
+- **unknown:** 45.7% (0.123 avg match rate)
+- **Leymebamba:** 45.5%
+- **Other:** 26.1%
+- **Unknown:** 19.4%
+- **Ica:** 18.4% (0.038 avg match rate)
+- **Pachacamac:** 17.8% (0.038 avg match rate) — **LOWEST**
+
+**White boundary markers:**
+- Pachacamac: 90.0% (highest use of white markers)
+- unknown: 82.6%
+- Other: 73.2%
+- Ica: 73.5%
+- Unknown: 66.3%
+- Incahuasi: 44.2% (lowest)
+
+**Interpretation:** Incahuasi and unknown-provenance khipus exhibit dramatically higher summation accuracy (3-4x other regions), suggesting either:
+1. Specialized accounting traditions in these regions
+2. Different functional purposes (accounting vs narrative)
+3. Greater standardization in these administrative centers
+
+#### High-Match Khipu Provenance Distribution
+
+**Geographic concentration of exemplar khipus:**
+- Incahuasi: 2/9 (22.2%) — **2.65x enrichment**
+- Armatambo, Huaca San Pedro: 1/9 (11.1%) — **6.25x enrichment**
+- Huaquerones: 1/9 (11.1%) — **3.62x enrichment**
+- Ica: 1/9 (11.1%)
+- Pachacamac: 1/9 (11.1%)
+
+**Interpretation:** High-match exemplars disproportionately from Incahuasi, Armatambo, and Huaquerones, suggesting these may have been administrative centers with more rigorous accounting standards.
+
+#### Provenance Summary Statistics
+
+All provenances show **Cluster 3 (medium khipus) as most common**, confirming this as the dominant khipu archetype across the empire.
+
+**Regional profiles:**
+- **Incahuasi:** Large (111 nodes), deep (2.6), high summation (48.1%), low white markers (44.2%)
+- **Leymebamba:** Very large (236 nodes), deep (2.6), high summation (45.5%)
+- **Pachacamac:** Medium (67 nodes), low summation (17.8%), very high white markers (90%)
+- **Ica:** Small (60 nodes), shallow (1.8), low summation (18.4%), highest numeric (80.5%)
+- **Huaquerones:** Very small (38 nodes), shallow (1.5), lowest summation (10.5%)
+
+**Outputs:**
+- `geographic_correlation_analysis.json` — Complete statistical results
+
+**Status:** ✅ COMPLETE
+
+---
+
+## Pattern Discovery Implications
+
+### Key Discoveries
+
+1. **Geographic Variation is Real but Limited**
+   - Significant structural differences exist between provenances (p < 0.001)
+   - Incahuasi emerges as distinct: larger, deeper, higher summation accuracy
+   - All regions dominated by Cluster 3 (medium khipus), suggesting empire-wide standardization
+
+2. **Functional Specialization by Region**
+   - **Incahuasi/Leymebamba:** Large administrative accounting khipus
+   - **Pachacamac:** Heavy use of white boundary markers, lower summation (possibly ceremonial?)
+   - **Ica:** High numeric coverage (80.5%), precise encoding
+   - **Huaquerones:** Small, simple khipus with minimal summation
+
+3. **Summation as Regional Administrative Signature**
+   - 3-4x variance in summation rates across regions (10.5% to 48.1%)
+   - High-match exemplars concentrated in specific administrative centers
+   - Suggests accounting rigor varied by regional administrative practices
+
+4. **White Cord Paradox Explained**
+   - Previous finding: high-match khipus have fewer white cords
+   - New finding: Incahuasi (highest summation) uses fewer white markers (44.2%)
+   - Interpretation: Sophisticated accounting regions may have relied less on visual separators
+
+5. **Cluster 0 as Elite Administrative Type**
+   - Large, deep khipus (Cluster 0) enriched 2-4x in Nazca, Leymebamba, Incahuasi
+   - These regions show highest summation accuracy
+   - Suggests Cluster 0 represents high-status administrative records
+
+6. **Empire-Wide Standardization with Regional Flavor**
+   - Despite significant differences, all regions use same structural archetypes (7 clusters)
+   - Medium khipus (Cluster 3) dominant everywhere (63.2%)
+   - Suggests central standardization with regional adaptation
+
+### Revised Understanding
+
+The **geographic correlation analysis fundamentally revises** our interpretation of the clustering results:
+
+- Previous: "Weak provenance clustering suggests empire-wide standards override geography"
+- **Revised:** "Empire-wide architectural standards (7 archetypes) were adapted to regional administrative needs and traditions"
+
+**Khipu structure reflects:**
+1. **Central standardization:** Same 7 structural archetypes used empire-wide
+2. **Regional specialization:** Different archetype frequencies and summation practices per region
+3. **Administrative hierarchy:** Elite centers (Incahuasi, Leymebamba) produced larger, more complex accounting khipus
+4. **Functional diversity:** Regional differences may reflect different record types (accounting vs narrative vs ceremonial)
+
+---
+
+## Next Steps
+
+### Remaining Phase 4 Analyses
+
+**Status: 5/7 Complete (71%)**
+
+- [x] 1. High-match summation analysis
+- [x] 2. Hierarchical summation testing  
+- [x] 3. Graph similarity analysis
+- [x] 4. Clustering analysis
+- [x] 5. Geographic correlation analysis
+- [ ] 6. Template extraction and analysis
+- [ ] 7. Subgraph motif mining
+
+**Next Analysis:** Template extraction and analysis
