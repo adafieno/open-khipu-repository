@@ -137,18 +137,31 @@ This project includes advanced interactive visualizations:
 ### 🌐 Interactive Web Dashboard
 - **File:** `scripts/dashboard_app.py`
 - **Launch:** `streamlit run scripts/dashboard_app.py`
-- **Features:** Real-time filtering, multi-tab analysis, data export
+- **Features:** Real-time filtering, multi-tab analysis, **interactive Peru map** showing 15+ locations, data export
 - Explore all 612 khipus with interactive plots and statistical comparisons
+- **NEW:** Geographic tab now displays complete Peru map with 400+ khipus plotted across archaeological sites
 
 ### 📐 3D Khipu Structure Viewer
-- **File:** `scripts/visualize_3d_khipu.py`
-- **Usage:** `python scripts/visualize_3d_khipu.py --khipu-id 1 --multi-view`
-- **Features:** Hierarchical 3D layout, interactive rotation, summation flow visualization
+- **Command-line:** `python scripts/visualize_3d_khipu.py --khipu-id 1000000 --multi-view`
+- **🌟 Interactive Web Viewer (NEW):** `streamlit run scripts/interactive_3d_viewer.py --server.port 8502`
+- **Features:** Dropdown selection of all 612 khipus, live statistics, elevation/azimuth controls, hierarchical 3D layout, summation flow visualization
+- **Why use web viewer:** No command-line arguments needed, browse all khipus easily, see provenance and metadata
 
 ### 🗺️ Geographic Heatmap
 - **File:** `scripts/visualize_geographic_heatmap.py`
 - **Usage:** `python scripts/visualize_geographic_heatmap.py`
 - **Features:** Interactive maps with provenance statistics, summation rate heatmaps
+
+### 📊 Quick Start
+
+Run multiple viewers simultaneously:
+```bash
+# Terminal 1: Main dashboard (port 8501)
+streamlit run scripts/dashboard_app.py
+
+# Terminal 2: 3D viewer (port 8502)
+streamlit run scripts/interactive_3d_viewer.py --server.port 8502
+```
 
 📖 **See [docs/VISUALIZATIONS_GUIDE.md](docs/VISUALIZATIONS_GUIDE.md) for complete documentation**
 

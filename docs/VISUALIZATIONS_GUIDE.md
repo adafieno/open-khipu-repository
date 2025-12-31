@@ -12,10 +12,11 @@ A comprehensive Streamlit web application for exploring khipu data with real-tim
 - **Real-time Filtering:** Select clusters, provenances, size ranges, and summation patterns
 - **Multi-tab Interface:**
   - **Overview:** PCA scatter, size vs depth, cluster distribution
-  - **Geographic:** Summation rates by provenance, structural features, enrichment heatmap
+  - **Geographic:** Interactive Peru map showing all 612 khipus across 15+ locations, summation rates by provenance, structural features, enrichment heatmap
   - **Clusters:** Detailed cluster analysis with feature distributions
   - **Features:** Correlation analysis and feature relationships
 - **Data Export:** Download filtered data and summary statistics as CSV
+- **Geographic Map:** Plotly scatter_geo showing complete distribution with fuzzy provenance matching
 
 ### Usage:
 ```bash
@@ -34,11 +35,13 @@ The dashboard will open in your default web browser at `http://localhost:8501`
 
 ## 📐 3D Khipu Structure Viewer
 
+### Command-Line Viewer
+
 **File:** `scripts/visualize_3d_khipu.py`
 
 Creates interactive 3D visualizations of individual khipu hierarchical structures.
 
-### Features:
+**Features:**
 - Hierarchical layout showing parent-child cord relationships
 - Interactive rotation and zoom (in matplotlib window)
 - Three color modes:
@@ -48,40 +51,83 @@ Creates interactive 3D visualizations of individual khipu hierarchical structure
 - Multiple viewing angles
 - Summation flow visualization (highlights summation relationships in red)
 
-### Usage:
+**Usage:**
 
 **Basic visualization:**
 ```bash
-python scripts/visualize_3d_khipu.py --khipu-id 1
+python scripts/visualize_3d_khipu.py --khipu-id 1000000
 ```
+
+**Note:** Khipu IDs start at 1000000 (not 1). Use the interactive viewer (below) for easier browsing.
+
+### 🌟 Interactive 3D Viewer (NEW)
+
+**File:** `scripts/interactive_3d_viewer.py`
+
+Streamlit-based web interface for browsing 3D khipu structures with dropdown selection.
+
+**Features:**
+- **Dropdown menu** with all 612 khipus (no command-line arguments needed!)
+- **Live statistics** panel showing cord count, hierarchy depth, numeric values
+- **Interactive controls:** Elevation and azimuth sliders to rotate view
+- **Color modes:** Switch between numeric value and hierarchy level coloring
+- **Provenance display:** See location and cord count for each khipu
+- **Auto-refresh:** Visualization updates instantly when you change selections
+
+**Usage:**
+```bash
+streamlit run scripts/interactive_3d_viewer.py --server.port 8502
+```
+
+The viewer will open at `http://localhost:8502`
+
+**Interface:**
+- **Left sidebar:** Select khipu from dropdown, choose color mode, adjust view angles
+- **Main panel:** Interactive 3D visualization
+- **Right panel:** Real-time statistics and hierarchy level distribution
+
+**Why use this instead of command-line?**
+- No need to remember khipu IDs
+- Browse through all khipus quickly
+- See metadata (provenance, cord count) before viewing
+- Instant visual feedback when adjusting parameters
 
 **With specific color mode:**
 ```bash
-python scripts/visualize_3d_khipu.py --khipu-id 1 --color-mode level
+python scripts/visualize_3d_khipu.py --khipu-id 1000000 --color-mode level
 ```
 
 **Save to file:**
 ```bash
-python scripts/visualize_3d_khipu.py --khipu-id 1 --output outputs/khipu_1.png
+python scripts/visualize_3d_khipu.py --khipu-id 1000000 --output outputs/khipu_1000000.png
 ```
 
 **Multi-view (4 angles):**
 ```bash
-python scripts/visualize_3d_khipu.py --khipu-id 1 --multi-view
+python scripts/visualize_3d_khipu.py --khipu-id 1000000 --multi-view
 ```
 
 **Summation flow (highlight summation edges):**
 ```bash
-python scripts/visualize_3d_khipu.py --khipu-id 1 --summation-flow
+python scripts/visualize_3d_khipu.py --khipu-id 1000000 --summation-flow
 ```
 
-### Examples:
+### Running Multiple Viewers
 
-Try these interesting khipus:
-- Khipu 1: Small, simple structure (good starting example)
-- Khipu 50: Medium complexity with summation patterns
-- Khipu 100: Large structure with multiple levels
-- Khipu 200: Complex branching hierarchy
+You can run both the dashboard and 3D viewer simultaneously:
+
+```bash
+# Terminal 1: Main dashboard
+streamlit run scripts/dashboard_app.py
+
+# Terminal 2: 3D viewer
+streamlit run scripts/interactive_3d_viewer.py --server.port 8502
+```
+
+- Dashboard: http://localhost:8501
+- 3D Viewer: http://localhost:8502
+
+This allows you to browse the dataset in the dashboard, then inspect interesting khipus in the 3D viewer.
 
 ---
 
@@ -224,15 +270,24 @@ All packages are already installed in your environment.
 **Dashboard won't start:**
 - Ensure port 8501 is available: `netstat -ano | findstr :8501`
 - Try alternate port: `streamlit run scripts/dashboard_app.py --server.port 8502`
+- Kill existing Streamlit: `Stop-Process -Name streamlit -Force`
 
 **3D viewer shows empty plot:**
-- Verify khipu ID exists: Check `data/processed/cord_hierarchy.csv`
+- Use interactive viewer (`interactive_3d_viewer.py`) instead of command-line version
+- Khipu IDs start at 1000000, not 1
+- Verify khipu ID exists: Check dropdown list in interactive viewer
 - Ensure khipu has cord data (not one of the 7 filtered empty records)
+
+**Geographic map shows only 3 locations:**
+- This was a bug - now fixed! Map uses full dataset, not filtered data
+- Fuzzy matching covers 15+ locations (Pachacamac, Ica, Nazca, Leymebamba, etc.)
+- Refresh dashboard if you still see old version
+- Empty provenance strings are filtered out by design
 
 **Maps show no data:**
 - Check that geographic heatmap script completed successfully
 - Verify provenance names match `PROVENANCE_LOCATIONS` dictionary
-- Unknown provenances are filtered out by design
+- Dashboard map uses fuzzy matching and shows ~400+ khipus across locations
 
 **Memory issues:**
 - Close other applications

@@ -46,12 +46,15 @@ def build_network(khipu_data):
     for _, row in khipu_data.iterrows():
         cord_id = row['CORD_ID']
         parent_id = row['PENDANT_FROM']
-        level = row['LEVEL']
+        level = row['CORD_LEVEL'] if pd.notna(row['CORD_LEVEL']) else 0
         numeric_value = row['numeric_value'] if pd.notna(row['numeric_value']) else 0
         
         G.add_node(cord_id, level=level, value=numeric_value)
         
         if pd.notna(parent_id) and parent_id != 0:
+            # Add parent node if it doesn't exist (main cord)
+            if not G.has_node(parent_id):
+                G.add_node(parent_id, level=0, value=0)
             G.add_edge(parent_id, cord_id)
     
     return G
