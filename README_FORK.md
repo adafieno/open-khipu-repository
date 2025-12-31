@@ -50,12 +50,35 @@ This repository is a research fork focused on **computational hypothesis-testing
   - Motif mining: 7 universal branching patterns, single pendant (1,(0,),True,1) fundamental building block
   - Finding: Hierarchical standardization — universal micro-patterns, empire-wide archetypes, regional adaptations
   - Exported: high_match_khipus.csv, cluster_assignments_kmeans.csv, geographic_correlation_analysis.json, template_analysis.json, motif_mining_results.json
-- 📋 **Phase 5: Multi-Model Framework** - Hypothesis evaluation with uncertainty quantification
+- ✅ **Phase 5: Multi-Model Framework** - Hypothesis evaluation with uncertainty quantification (COMPLETE)
+  - Color semantics hypothesis testing: 4 hypotheses tested with statistical validation
+    - White boundaries: MIXED verdict (+10.7% summation improvement, 28.9% vs 18.2%)
+    - Color-value correlation: NOT SUPPORTED (p=0.92)
+    - Color-function patterns: SUPPORTED (+57% more colors in accounting, 5.22 vs 3.33)
+    - Provenance semantics: NOT SUPPORTED (p=1.00, uniform across regions)
+  - Function classification: Random forest classifier (98% accounting vs 2% narrative)
+    - Key discriminators: Numeric coverage (39.9%), color diversity (26.8%), branching (17.9%)
+    - All provenances show 95-100% accounting rate
+  - Visualization suite: 8 publication-quality visualizations (300 DPI)
+    - Cluster PCA plots, geographic heatmaps, motif frequency charts
+    - Provenance feature comparisons showing regional specialization
+  - Comprehensive research report: RESEARCH_REPORT.md (12 sections, 3 appendices)
+  - Exported: color_hypothesis_tests.json, khipu_function_classification.csv, 8 PNG visualizations
 
 ## Repository Structure
 
 ```
 ├── data/              # Processed data and graph representations
+│   └── processed/     # Analysis outputs (30+ files)
+│       ├── cluster_assignments_kmeans.csv
+│       ├── summation_test_results.csv
+│       ├── color_hypothesis_tests.json
+│       ├── khipu_function_classification.csv
+│       └── [28 more analysis files]
+├── visualizations/    # Generated visualizations
+│   ├── clusters/      # 4 cluster analysis plots + summary table
+│   ├── geographic/    # 2 provenance comparison plots
+│   └── motifs/        # 2 motif frequency charts
 ├── notebooks/         # Jupyter notebooks for exploration
 ├── src/               # Python source code
 │   ├── extraction/    # Database extraction tools
@@ -63,9 +86,15 @@ This repository is a research fork focused on **computational hypothesis-testing
 │   ├── numeric/       # Numeric constraint solving
 │   ├── patterns/      # Pattern discovery algorithms
 │   └── visualization/ # Visualization tools
+├── scripts/           # Analysis scripts
+│   ├── test_summation_hypotheses.py
+│   ├── test_color_hypotheses.py
+│   ├── classify_khipu_function.py
+│   ├── visualize_clusters.py
+│   └── visualize_geographic_motifs.py
 ├── docs/              # Project documentation and findings
 ├── reports/           # Generated analysis reports
-├── scripts/           # Utility scripts
+├── RESEARCH_REPORT.md # Comprehensive research report (12 sections)
 └── khipu.db          # OKR SQLite database (619 khipus)
 ```
 
@@ -125,6 +154,17 @@ Comprehensive phase reports are available in [reports/](reports/):
 - **[Phase 1: Baseline Validation](reports/phase1_baseline_validation_report.md)** - Numeric decoding (95.8% success)
 - **[Phase 2: Extraction Infrastructure](reports/phase2_extraction_infrastructure_report.md)** - Extractors & graphs (55K nodes)
 - **[Phase 3: Summation Testing](reports/phase3_summation_testing_report.md)** - Hypothesis validation (74.2% summation)
+- **[Phase 4: Pattern Discovery](reports/)** - Clustering, geographic analysis, motif mining
+- **[Phase 5: Multi-Model Framework](reports/)** - Hypothesis testing, function classification
+
+**Comprehensive Research Report:** [RESEARCH_REPORT.md](RESEARCH_REPORT.md) - Full analysis with 12 sections covering:
+- Seven distinct khipu archetypes (K-means clustering, k=7)
+- Geographic specialization (Incahuasi 2.7× higher summation than Pachacamac)
+- Color semantics (4 hypotheses tested, accounting uses +57% more colors)
+- Function classification (98% accounting vs 2% narrative)
+- 45× structural complexity range across clusters
+- Universal design principles (7 shared motifs)
+- Detailed appendices with cluster profiles and statistical tests
 
 ## Research Methodology
 
