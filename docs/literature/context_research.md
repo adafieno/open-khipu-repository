@@ -1,7 +1,7 @@
 # Quipu Decipherment Project  
 ## Literature Review, Expert Integration, and Validation Strategy
 
-This document outlines prior computational work on Inca quipus, identifies open debates and constraints in the domain, and proposes a validation-first strategy suitable for a personal exploratory AI project grounded in the Open Khipu Repository (OKR).
+This document outlines prior computational work on Inka quipus, identifies open debates and constraints in the domain, and proposes a validation-first strategy suitable for a personal exploratory AI project grounded in the Open Khipu Repository (OKR).
 
 ---
 

@@ -275,7 +275,7 @@ Most common universal motif: `(1, (0,), True, 1)`
 ### 5.3 Alternative Summation Models (Future Work)
 
 **Models to test**:
-1. **Modulo-10 summation**: Sum mod 10 (Inca decimal system)
+1. **Modulo-10 summation**: Sum mod 10 (Inka decimal system)
 2. **Base-10 positional**: Column-wise summation with carry
 3. **Variable tolerance**: Test ±2, ±5 tolerances for partial decay/loss
 4. **Partial summation**: Some groups sum, others don't (mixed function)
@@ -347,7 +347,7 @@ Most common universal motif: `(1, (0,), True, 1)`
 - **Provenance**: 172/619 khipus (27.8%) have empty/unknown provenance
 - **Preservation**: Cord damage, knot decay may affect numeric value accuracy
 - **Digitization**: OCR-like extraction may introduce errors in color/value interpretation
-- **Sample bias**: Harvard collection may not represent full Inca khipu diversity
+- **Sample bias**: Harvard collection may not represent full Inka khipu diversity
 
 ### 8.2 Methodological Constraints
 
@@ -411,7 +411,7 @@ Most common universal motif: `(1, (0,), True, 1)`
 ### 10.1 Immediate Extensions
 
 **Alternative Summation Models**:
-- Test modulo-10 arithmetic (Inca decimal system)
+- Test modulo-10 arithmetic (Inka decimal system)
 - Test base-10 positional encoding with carry
 - Test variable tolerances (±2, ±5) for partial match
 - Test cross-level summation (grandparent = all descendants)
@@ -424,7 +424,7 @@ Most common universal motif: `(1, (0,), True, 1)`
 **Temporal Analysis**:
 - Date khipus via archaeological context (where available)
 - Test for chronological trends in structure/encoding
-- Identify early vs late Inca period differences
+- Identify early vs late Inka period differences
 
 ### 10.2 Cross-Archive Research
 
@@ -505,7 +505,7 @@ This work establishes a computational foundation for khipu studies, enabling hyp
   *Validated summation patterns, white boundary hypothesis*
 
 - **Urton, Gary (2017)**: "Inka History in Knots"  
-  *Narrative vs accounting distinction, Inca administrative context*
+  *Narrative vs accounting distinction, Inka administrative context*
 
 - **Locke, L. Leland (1923)**: "The Ancient Quipu or Peruvian Knot Record"  
   *Foundational decimal encoding theory*

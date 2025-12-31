@@ -145,7 +145,7 @@ Phase 1 establishes the foundation for:
 ## References
 
 - Locke, L. L. (1912). *The Ancient Quipu, a Peruvian Knot Record*. American Anthropologist.
-- Ascher, M., & Ascher, R. (1997). *Mathematics of the Incas: Code of the Quipu*. Dover Publications.
+- Ascher, M., & Ascher, R. (1997). *Mathematics of the Inkas: Code of the Quipu*. Dover Publications.
 - Medrano, M., & Khosla, R. (2024). Algorithmic decipherment of Inka khipus. *Science Advances*.
 
 ---
