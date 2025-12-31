@@ -46,16 +46,20 @@ st.markdown("""
 def load_data():
     """Load all processed data files."""
     try:
-        hierarchy = pd.read_csv("data/processed/cord_hierarchy.csv")
+        import sqlite3
+        
+        # Load CSV files (cluster_assignments already has structural features)
         clusters = pd.read_csv("data/processed/cluster_assignments_kmeans.csv")
-        features = pd.read_csv("data/processed/graph_structural_features.csv")
         summation = pd.read_csv("data/processed/summation_test_results.csv")
         pca = pd.read_csv("data/processed/cluster_pca_coordinates.csv")
         
-        # Merge data
-        provenance = hierarchy[['KHIPU_ID', 'PROVENANCE']].drop_duplicates()
+        # Load provenance from database
+        conn = sqlite3.connect("khipu.db")
+        provenance = pd.read_sql_query("SELECT KHIPU_ID, PROVENANCE FROM khipu_main", conn)
+        conn.close()
         
-        data = clusters.merge(features, on='khipu_id').merge(
+        # Merge data
+        data = clusters.merge(
             summation, on='khipu_id', how='left'
         ).merge(
             pca, on='khipu_id', how='left'
@@ -65,13 +69,16 @@ def load_data():
         
         data['PROVENANCE'] = data['PROVENANCE'].fillna('Unknown')
         
-        return data, hierarchy
+        return data
     except FileNotFoundError as e:
         st.error(f"Data file not found: {e}")
-        return None, None
+        return None
+    except Exception as e:
+        st.error(f"Error loading data: {e}")
+        return None
 
 # Load data
-data, hierarchy = load_data()
+data = load_data()
 
 if data is None:
     st.stop()
@@ -168,7 +175,7 @@ with tab1:
             color_continuous_scale='viridis'
         )
         fig_pca.update_layout(height=500)
-        st.plotly_chart(fig_pca, use_container_width=True)
+        st.plotly_chart(fig_pca, width="stretch")
     
     with col2:
         # Size vs Depth scatter
@@ -184,7 +191,7 @@ with tab1:
             color_continuous_scale='plasma'
         )
         fig_size.update_layout(height=500)
-        st.plotly_chart(fig_size, use_container_width=True)
+        st.plotly_chart(fig_size, width="stretch")
     
     # Cluster distribution bar chart
     cluster_dist = filtered_data['cluster'].value_counts().sort_index()
@@ -197,7 +204,7 @@ with tab1:
         color_continuous_scale='Blues'
     )
     fig_bar.update_layout(height=400)
-    st.plotly_chart(fig_bar, use_container_width=True)
+    st.plotly_chart(fig_bar, width="stretch")
 
 # TAB 2: Geographic Analysis
 with tab2:
@@ -224,7 +231,7 @@ with tab2:
         )
         fig_prov_sum.update_traces(texttemplate='n=%{text}', textposition='outside')
         fig_prov_sum.update_layout(height=500, xaxis_tickangle=-45)
-        st.plotly_chart(fig_prov_sum, use_container_width=True)
+        st.plotly_chart(fig_prov_sum, width="stretch")
     
     with col2:
         # Average features by provenance
@@ -245,7 +252,7 @@ with tab2:
             height=500,
             barmode='group'
         )
-        st.plotly_chart(fig_prov_feat, use_container_width=True)
+        st.plotly_chart(fig_prov_feat, width="stretch")
     
     # Heatmap: Cluster × Provenance
     contingency = pd.crosstab(filtered_data['cluster'], filtered_data['PROVENANCE'])
@@ -257,7 +264,7 @@ with tab2:
         aspect='auto'
     )
     fig_heatmap.update_layout(height=400)
-    st.plotly_chart(fig_heatmap, use_container_width=True)
+    st.plotly_chart(fig_heatmap, width="stretch")
 
 # TAB 3: Cluster Analysis
 with tab3:
@@ -288,7 +295,7 @@ with tab3:
             color_discrete_sequence=['steelblue']
         )
         fig_size_dist.update_layout(height=400)
-        st.plotly_chart(fig_size_dist, use_container_width=True)
+        st.plotly_chart(fig_size_dist, width="stretch")
     
     with col2:
         fig_numeric = px.histogram(
@@ -300,7 +307,7 @@ with tab3:
             color_discrete_sequence=['coral']
         )
         fig_numeric.update_layout(height=400)
-        st.plotly_chart(fig_numeric, use_container_width=True)
+        st.plotly_chart(fig_numeric, width="stretch")
 
 # TAB 4: Feature Relationships
 with tab4:
@@ -327,7 +334,7 @@ with tab4:
         color_continuous_scale='viridis'
     )
     fig_corr.update_layout(height=600)
-    st.plotly_chart(fig_corr, use_container_width=True)
+    st.plotly_chart(fig_corr, width="stretch")
     
     # Correlation matrix
     st.markdown("### Feature Correlation Matrix")
@@ -342,7 +349,7 @@ with tab4:
         zmax=1
     )
     fig_corr_matrix.update_layout(height=500)
-    st.plotly_chart(fig_corr_matrix, use_container_width=True)
+    st.plotly_chart(fig_corr_matrix, width="stretch")
 
 # ==================== DATA EXPORT ====================
 st.markdown("---")
