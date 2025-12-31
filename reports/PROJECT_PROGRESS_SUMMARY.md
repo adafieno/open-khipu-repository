@@ -8,7 +8,7 @@
 
 This document provides a comprehensive summary of completed work on the Khipu Computational Analysis Toolkit, a research fork of the Open Khipu Repository focused on building computational hypothesis-testing infrastructure for Inka khipu research.
 
-## Project Status: Phases 0-3 Complete ✅
+## Project Status: Phases 0-3 Complete ✅, Phase 4 In Progress 🔄
 
 ### Phase 0: Reconnaissance ✅ COMPLETE
 **Completed:** December 30, 2025  
@@ -333,6 +333,68 @@ All extraction and analysis code is open source, enabling:
 
 ---
 
+### Phase 4: Pattern Discovery 🔄 IN PROGRESS
+**Started:** December 31, 2025  
+**Progress Report:** [phase4_pattern_discovery_progress.md](phase4_pattern_discovery_progress.md)
+
+**Objective:** Use graph representations and statistical methods to discover recurring structural patterns, cluster khipus by similarity, and identify templates for encoding schemes.
+
+**Completed Analyses:**
+
+#### 1. High-Match Summation Khipu Analysis
+**Goal:** Identify khipus with exceptional summation consistency for pattern extraction
+
+**Key Results:**
+- **9 khipus identified** with ≥80% match rate (1.5% of dataset)
+- **8 perfect matches** (100% match rate)
+- **Avg characteristics:** 51.9 cords, 73.5% numeric coverage, 2.2 levels deep
+
+**Surprising Finding:** High-match khipus have **fewer white cords** than low-match khipus
+- High-match: 8.6 white cords (55.6% have white)
+- Low-match: 24.7 white cords (75.2% have white)
+- Difference: -16.1 white cords (-19.7% presence)
+
+**Interpretation:** White cords do NOT strongly correlate with summation consistency, challenging the simple boundary marker interpretation. White cords may serve multiple functions or indicate alternative encoding types.
+
+**Template Khipus Identified:**
+1. Khipu 1000137: 27 cords, 85.2% coverage, depth 2
+2. Khipu 1000606: 25 cords, 92.0% coverage, depth 3
+3. Khipu 1000093: 23 cords, 91.3% coverage, depth 2
+4. Khipu 1000644: 4 cords, 100% coverage, depth 2
+
+**Output:** `high_match_khipus.csv`, `high_match_analysis.json`
+
+#### 2. Hierarchical Summation Testing
+**Goal:** Test whether summation extends to multi-level recursive hierarchies
+
+**Key Results:**
+- **384 khipus tested** (62% of dataset had testable hierarchies)
+- **136 khipus** show multi-level summation (35.4% of testable)
+- **12 khipus** achieve high multi-level match (≥80%): only 3.1%
+- **7,322 summation tests** performed across all levels
+
+**Match Rates by Level:**
+- Level 2 (pendant → primary): 10.4% (6,151 tests)
+- Level 3 (subsidiary → pendant): 15.1% (971 tests)  
+- Level 4+: 10-11% (140 tests)
+
+**Finding:** Multi-level summation is **relatively rare and less consistent** than single-level:
+- Most summation occurs at one hierarchical level
+- Deep hierarchies (4+ levels) are uncommon
+- Match rates decline or stay low at deeper levels
+
+**Interpretation:** Recursive hierarchical summation exists but is not the dominant pattern. Summation is primarily a single-level phenomenon (pendant → primary), suggesting most khipus encoded flat or shallow accounting structures.
+
+**Output:** `hierarchical_summation_results.csv`, `hierarchical_summation_analysis.json`
+
+**Pending Analyses:**
+- Graph similarity metrics (graph edit distance, kernels)
+- Clustering by structural patterns
+- Subgraph motif mining
+- Geographic correlation analysis
+
+---
+
 ## Next Steps: Phase 4 & 5
 
 ### Phase 4: Pattern Discovery 📋 PENDING
@@ -399,6 +461,6 @@ This research builds upon:
 
 ---
 
-**Document Version:** 1.0  
+**Document Version:** 1.1  
 **Last Updated:** December 31, 2025  
-**Status:** Phases 0-3 Complete, Phase 4-5 Pending
+**Status:** Phases 0-3 Complete, Phase 4 In Progress

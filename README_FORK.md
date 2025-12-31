@@ -40,7 +40,12 @@ This repository is a research fork focused on **computational hypothesis-testing
   - White cords confirmed as boundary markers (+9.1% higher match rates)
   - Identified white cord boundary markers across dataset (454 khipus, 73.3%)
   - Exported: summation_test_results.csv with detailed analysis
-- 📋 **Phase 4: Pattern Discovery** - Clustering and motif mining with provenance-aware constraints
+- � **Phase 4: Pattern Discovery** - Clustering and motif mining with provenance-aware constraints (IN PROGRESS)
+  - High-match khipu analysis: 9 khipus with ≥80% match rate identified (1.5%)
+  - Hierarchical summation testing: 35.4% show multi-level patterns (384/619 tested)
+  - Finding: High-match khipus have fewer white cords than low-match (counterintuitive)
+  - Template khipus identified: 4 perfect-match examples for pattern mining
+  - Exported: high_match_khipus.csv, hierarchical_summation_results.csv
 - 📋 **Phase 5: Multi-Model Framework** - Hypothesis evaluation with uncertainty quantification
 
 ## Repository Structure
