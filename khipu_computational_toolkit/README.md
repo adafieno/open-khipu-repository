@@ -20,12 +20,22 @@ This toolkit provides a complete computational analysis pipeline for studying kh
 
 ## Quick Start
 
+### Prerequisites
+
+**Important:** This toolkit requires the OKR database file:
+- The database (`khipu.db`) should be located at `data/khipu.db` in the repository root
+- The database is **not included** in this toolkit (it's in the upstream OKR repository)
+- Scripts will automatically find the database at `../data/khipu.db` relative to the toolkit
+
 ### Installation
 
 ```bash
 # Clone the repository
 git clone https://github.com/khipulab/open-khipu-repository.git
 cd open-khipu-repository
+
+# Verify database exists
+ls data/khipu.db  # Should show the database file
 
 # Install dependencies
 pip install -r khipu_computational_toolkit/requirements.txt
@@ -34,6 +44,9 @@ pip install -r khipu_computational_toolkit/requirements.txt
 ### Run the Dashboard
 
 ```bash
+# IMPORTANT: Run all commands from the repository root
+cd /path/to/open-khipu-repository
+
 # Launch interactive web dashboard
 streamlit run khipu_computational_toolkit/scripts/dashboard_app.py
 

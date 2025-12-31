@@ -64,3 +64,8 @@ reports/*.pdf
 # Temporary files
 *.tmp
 .cache/
+khipu.db
+data/khipu.db
+*.pyc
+.venv/
+*.pkl
