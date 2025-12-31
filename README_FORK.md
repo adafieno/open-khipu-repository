@@ -130,6 +130,37 @@ The OKR contains:
 - **56,306 color records** with detailed multi-color specifications
 - Geographic provenance from 53 archaeological sites
 
+## Visualization Tools
+
+This project includes advanced interactive visualizations:
+
+### 🌐 Interactive Web Dashboard
+- **File:** `scripts/dashboard_app.py`
+- **Launch:** `streamlit run scripts/dashboard_app.py`
+- **Features:** Real-time filtering, multi-tab analysis, data export
+- Explore all 612 khipus with interactive plots and statistical comparisons
+
+### 📐 3D Khipu Structure Viewer
+- **File:** `scripts/visualize_3d_khipu.py`
+- **Usage:** `python scripts/visualize_3d_khipu.py --khipu-id 1 --multi-view`
+- **Features:** Hierarchical 3D layout, interactive rotation, summation flow visualization
+
+### 🗺️ Geographic Heatmap
+- **File:** `scripts/visualize_geographic_heatmap.py`
+- **Usage:** `python scripts/visualize_geographic_heatmap.py`
+- **Features:** Interactive maps with provenance statistics, summation rate heatmaps
+
+📖 **See [docs/VISUALIZATIONS_GUIDE.md](docs/VISUALIZATIONS_GUIDE.md) for complete documentation**
+
+## Interactive Notebooks
+
+Explore khipu data with Jupyter notebooks (requires `ipywidgets`):
+
+1. **Cluster Explorer** (`notebooks/01_cluster_explorer.ipynb`): Filter and compare 7 archetypes
+2. **Geographic Patterns** (`notebooks/02_geographic_patterns.ipynb`): Regional variation analysis
+3. **Khipu Detail Viewer** (`notebooks/03_khipu_detail_viewer.ipynb`): Deep-dive individual khipus
+4. **Hypothesis Dashboard** (`notebooks/04_hypothesis_dashboard.ipynb`): Custom statistical testing
+
 ## Citation
 
 If you use this research fork, please cite both:
