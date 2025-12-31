@@ -1,6 +1,8 @@
-# Khipu Decipherment Research Project
+# Khipu Computational Analysis Toolkit
 
-**A computational research fork of the [Open Khipu Repository](https://github.com/khipulab/open-khipu-repository)**
+**AI-Assisted Hypothesis Testing for Inka Khipu Research**
+
+*A computational research fork of the [Open Khipu Repository](https://github.com/khipulab/open-khipu-repository)*
 
 [![Original DOI](https://zenodo.org/badge/296378423.svg)](https://zenodo.org/badge/latestdoi/296378423)
 
@@ -22,10 +24,14 @@ This repository is a research fork focused on **computational hypothesis-testing
 ### Project Status
 
 - ✅ **Phase 0: Reconnaissance** - Database analysis and data model documentation (COMPLETE)
-- ⏳ **Phase 1: Infrastructure** - Data extraction pipelines with validation hooks (IN PROGRESS)
-- 📋 **Phase 2: Arithmetic Validation** - Test known summation rules, establish ground truth baseline
-- 📋 **Phase 3: Pattern Discovery** - Clustering and motif mining with provenance-aware constraints
-- 📋 **Phase 4: Hypothesis Testing** - Multi-model evaluation framework with uncertainty quantification
+- ✅ **Phase 1: Baseline Validation** - Arithmetic validation and numeric decoding pipeline (COMPLETE)
+  - Decoded 54,403 cords with numeric values (68% coverage)
+  - Validated all 619 khipus for arithmetic consistency (95.8% have numeric data, avg confidence 0.947)
+  - Exported processed datasets: cord_numeric_values.csv, validation_results_full.json
+- ⏳ **Phase 2: Extraction Infrastructure** - Cord/knot extractors with validation hooks (IN PROGRESS)
+- 📋 **Phase 3: Summation Hypothesis Testing** - Test white cord boundaries, pendant sum patterns
+- 📋 **Phase 4: Pattern Discovery** - Clustering and motif mining with provenance-aware constraints
+- 📋 **Phase 5: Multi-Model Framework** - Hypothesis evaluation with uncertainty quantification
 
 ## Repository Structure
 
