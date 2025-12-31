@@ -431,7 +431,7 @@ Most common universal motif: `(1, (0,), True, 1)`
 
 **Expand dataset**:
 - Integrate Open Khipu Repository (https://khipukamayuq.fas.harvard.edu/)
-- Add museum collections (British Museum, Museo Nacional Peru)
+- Add museum collections (British Museum, Museo Nacional del Perú)
 - Target specific provenances (more Incahuasi, Pachacamac samples)
 
 **Archive-level patterns**:

@@ -12,7 +12,7 @@ A comprehensive Streamlit web application for exploring khipu data with real-tim
 - **Real-time Filtering:** Select clusters, provenances, size ranges, and summation patterns
 - **Multi-tab Interface:**
   - **Overview:** PCA scatter, size vs depth, cluster distribution
-  - **Geographic:** Interactive Peru map showing all 612 khipus across 15+ locations, summation rates by provenance, structural features, enrichment heatmap
+  - **Geographic:** Interactive Andes region map showing all 612 khipus across 15+ locations, summation rates by provenance, structural features, enrichment heatmap
   - **Clusters:** Detailed cluster analysis with feature distributions
   - **Features:** Correlation analysis and feature relationships
 - **Data Export:** Download filtered data and summary statistics as CSV
@@ -135,7 +135,7 @@ This allows you to browse the dataset in the dashboard, then inspect interesting
 
 **File:** `scripts/visualize_geographic_heatmap.py`
 
-Creates interactive maps showing geographic distribution of khipu patterns across archaeological sites in Peru.
+Creates interactive maps showing geographic distribution of khipu patterns across archaeological sites in the Andes region.
 
 ### Features:
 - **Heatmap overlay:** Intensity based on summation rate

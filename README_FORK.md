@@ -64,21 +64,48 @@ This repository is a research fork focused on **computational hypothesis-testing
     - Provenance feature comparisons showing regional specialization
   - Comprehensive research report: RESEARCH_REPORT.md (12 sections, 3 appendices)
   - Exported: color_hypothesis_tests.json, khipu_function_classification.csv, 8 PNG visualizations
+- ✅ **Phase 6: Advanced Visualizations** - Interactive dashboards and 3D viewers (COMPLETE)
+  - Interactive web dashboard with real-time filtering across 612 khipus
+  - Geographic map visualization of the Andes region with 15+ archaeological sites (400+ khipus plotted)
+  - 3D khipu structure viewer (command-line + interactive web version)
+  - Dropdown selection interface for easy khipu browsing
+  - Exported: dashboard_app.py, interactive_3d_viewer.py, visualize_3d_khipu.py
+- ✅ **Phase 7: ML Extensions** - Advanced machine learning for quality control and restoration (COMPLETE)
+  - **Anomaly Detection:** 13 high-confidence anomalies identified (2.1% of dataset)
+    - Three detection methods: Isolation Forest (31 anomalies), statistical outliers (2), topology analysis (126)
+    - 2 khipus flagged by all three methods (1000020: 771 nodes, 1000279: 592 nodes)
+    - Cluster 5 shows 66.7% anomaly rate suggesting data quality issues
+  - **Function Classification:** 98% accounting vs 2% narrative (589 khipus with >90% confidence)
+    - Random Forest classifier with cross-validation
+    - Key features: Numeric coverage (39.9%), color diversity (26.8%), structural complexity (17.9%)
+  - **Sequence Prediction:** 17,321 missing cord values predicted (31.8% of gaps filled)
+    - Constraint-based summation inference: 1,295 high-confidence predictions
+    - Sibling pattern matching: 773 predictions
+    - Random Forest ML baseline: 15,253 predictions (MAE: 258.40)
+  - **Visualization Suite:** 5 publication-quality ML results visualizations
+    - Anomaly overview with cluster distributions and score analysis
+    - High-confidence anomaly details with method agreement
+    - Function classification results with confidence metrics
+    - Prediction performance statistics and value distributions
+  - Exported: anomaly_detection_results.csv, cord_value_predictions.csv, 5 PNG visualizations, ML_RESULTS_SUMMARY.txt
 
 ## Repository Structure
 
 ```
 ├── data/              # Processed data and graph representations
-│   └── processed/     # Analysis outputs (30+ files)
+│   └── processed/     # Analysis outputs (40+ files)
 │       ├── cluster_assignments_kmeans.csv
 │       ├── summation_test_results.csv
 │       ├── color_hypothesis_tests.json
 │       ├── khipu_function_classification.csv
-│       └── [28 more analysis files]
+│       ├── anomaly_detection_results.csv
+│       ├── cord_value_predictions.csv
+│       └── [35+ more analysis files]
 ├── visualizations/    # Generated visualizations
 │   ├── clusters/      # 4 cluster analysis plots + summary table
 │   ├── geographic/    # 2 provenance comparison plots
-│   └── motifs/        # 2 motif frequency charts
+│   ├── motifs/        # 2 motif frequency charts
+│   └── ml_results/    # 5 ML visualization plots + summary report
 ├── notebooks/         # Jupyter notebooks for exploration
 ├── src/               # Python source code
 │   ├── extraction/    # Database extraction tools
@@ -91,7 +118,12 @@ This repository is a research fork focused on **computational hypothesis-testing
 │   ├── test_color_hypotheses.py
 │   ├── classify_khipu_function.py
 │   ├── visualize_clusters.py
-│   └── visualize_geographic_motifs.py
+│   ├── visualize_geographic_motifs.py
+│   ├── dashboard_app.py           # Interactive web dashboard
+│   ├── interactive_3d_viewer.py   # 3D khipu browser
+│   ├── detect_anomalies.py        # ML anomaly detection
+│   ├── predict_missing_values.py  # Sequence prediction for restoration
+│   └── visualize_ml_results.py    # ML results visualization
 ├── docs/              # Project documentation and findings
 ├── reports/           # Generated analysis reports
 ├── RESEARCH_REPORT.md # Comprehensive research report (12 sections)
@@ -137,9 +169,9 @@ This project includes advanced interactive visualizations:
 ### 🌐 Interactive Web Dashboard
 - **File:** `scripts/dashboard_app.py`
 - **Launch:** `streamlit run scripts/dashboard_app.py`
-- **Features:** Real-time filtering, multi-tab analysis, **interactive Peru map** showing 15+ locations, data export
+- **Features:** Real-time filtering, multi-tab analysis, **interactive Andes region map** showing 15+ locations, data export
 - Explore all 612 khipus with interactive plots and statistical comparisons
-- **NEW:** Geographic tab now displays complete Peru map with 400+ khipus plotted across archaeological sites
+- **NEW:** Geographic tab now displays complete Andes region map with 400+ khipus plotted across archaeological sites
 
 ### 📐 3D Khipu Structure Viewer
 - **Command-line:** `python scripts/visualize_3d_khipu.py --khipu-id 1000000 --multi-view`
@@ -200,6 +232,8 @@ Comprehensive phase reports are available in [reports/](reports/):
 - **[Phase 3: Summation Testing](reports/phase3_summation_testing_report.md)** - Hypothesis validation (74.2% summation)
 - **[Phase 4: Pattern Discovery](reports/)** - Clustering, geographic analysis, motif mining
 - **[Phase 5: Multi-Model Framework](reports/)** - Hypothesis testing, function classification
+- **[Phase 6: Advanced Visualizations](docs/VISUALIZATIONS_GUIDE.md)** - Interactive dashboards and 3D viewers
+- **[Phase 7: ML Extensions](visualizations/ml_results/ML_RESULTS_SUMMARY.txt)** - Anomaly detection, sequence prediction
 
 **Comprehensive Research Report:** [RESEARCH_REPORT.md](RESEARCH_REPORT.md) - Full analysis with 12 sections covering:
 - Seven distinct khipu archetypes (K-means clustering, k=7)
