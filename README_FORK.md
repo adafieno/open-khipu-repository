@@ -6,24 +6,26 @@
 
 ## About This Fork
 
-This repository is a research fork focused on **AI-assisted khipu decipherment**. It builds upon the excellent foundational work of the Open Khipu Repository (OKR) to develop computational methods for analyzing and potentially decoding Inka khipus.
+This repository is a research fork focused on **computational hypothesis-testing tools for khipu analysis**. It builds upon the excellent foundational work of the Open Khipu Repository (OKR) to develop rigorous, falsifiable methods for testing interpretive models of Inka khipus.
+
+**This is not a "decipherment" project.** Rather, it provides computational infrastructure to help scholars test hypotheses transparently, quantify uncertainty, and surface structural patterns that may inform future interpretive work.
 
 ### Research Goals
 
-1. **Graph-based structural analysis** - Convert khipus into hierarchical graphs to identify patterns
-2. **Numeric constraint solving** - Validate and extend positional decimal encoding conventions
-3. **Pattern discovery** - Use unsupervised learning to find recurring motifs across cord attributes
-4. **Multi-modal analysis** - Integrate numeric, color, spatial, and structural data
-5. **Hypothesis testing** - Build frameworks to evaluate competing interpretive models
-6. **Provenance analysis** - Correlate patterns with geographic and archaeological context
+1. **Arithmetic validation framework** - Test summation consistency and internal numeric logic (following Medrano & Khosla 2024)
+2. **Graph-based structural analysis** - Convert khipus into hierarchical graphs to identify recurring patterns
+3. **Hypothesis parameterization** - Represent multiple interpretations explicitly (e.g., color semantics as configurable assumptions)
+4. **Pattern discovery with constraints** - Use unsupervised learning while requiring patterns across multiple provenances
+5. **Multi-modal feature extraction** - Integrate numeric, color, spatial, and structural data with uncertainty tracking
+6. **Expert-in-the-loop validation** - Build checkpoints for domain expert review at each analytical stage
 
 ### Project Status
 
 - ✅ **Phase 0: Reconnaissance** - Database analysis and data model documentation (COMPLETE)
-- ⏳ **Phase 1: Infrastructure** - Data extraction pipelines and graph conversion (IN PROGRESS)
-- 📋 **Phase 2: Numeric Layer** - Constraint-based numeric interpretation
-- 📋 **Phase 3: Pattern Discovery** - Clustering and motif mining
-- 📋 **Phase 4: Hypothesis Testing** - Formal evaluation framework
+- ⏳ **Phase 1: Infrastructure** - Data extraction pipelines with validation hooks (IN PROGRESS)
+- 📋 **Phase 2: Arithmetic Validation** - Test known summation rules, establish ground truth baseline
+- 📋 **Phase 3: Pattern Discovery** - Clustering and motif mining with provenance-aware constraints
+- 📋 **Phase 4: Hypothesis Testing** - Multi-model evaluation framework with uncertainty quantification
 
 ## Repository Structure
 
@@ -52,7 +54,18 @@ This research project is built entirely upon the [Open Khipu Repository](https:/
 
 ### About Khipus
 
-Inka khipus were unique pre-Columbian Andean recording devices using three-dimensional signs—knots, cords, and colors—as symbols functionally similar to early writing systems. Spanish chronicles and contemporary studies indicate khipus recorded everything from accounting to historical narratives. **The khipu recording system remains undeciphered.**
+Inka khipus were unique pre-Columbian Andean recording devices using three-dimensional signs—knots, cords, and colors—as symbols functionally similar to early writing systems. Spanish chronicles and contemporary studies indicate khipus recorded everything from accounting to historical narratives.
+
+**Status:** The numeric encoding system is well-understood (decimal positional notation established by Locke 1912, refined by Ascher & Ascher). Recent work (Medrano & Khosla 2024) found ~74% of khipus contain internally consistent arithmetic summations. However, semantic meaning beyond accounting remains debated, with no consensus on whether khipus encoded narrative, categorical, or linguistic information.
+
+### Prior Computational Work
+
+This project builds on:
+- **Medrano & Khosla (2024):** Algorithmic analysis of 650 khipus, arithmetic consistency testing, white cord boundary detection
+- **Clindaniel (2024):** Transformer-based clustering of cord attributes, latent categorical structure discovery
+- **Ascher & Ascher:** Foundational comparative datasets and arithmetic structure documentation
+
+Our contribution focuses on **validation infrastructure** and **hypothesis testing frameworks** rather than new interpretive claims.
 
 ### Data Source
 
@@ -81,9 +94,14 @@ Copyright (c) 2025 [Research Project Team] (computational methods)
 
 See [docs/methodology/](docs/methodology/) for detailed documentation of:
 - Database structure and semantics
-- Data quality assessments
-- Analysis approaches and algorithms
-- Findings and interpretations
+- Data quality assessments and uncertainty quantification
+- Validation strategies and expert-in-the-loop checkpoints
+- Hypothesis parameterization and multi-interpretation support
+- Overfitting prevention (provenance-aware splitting, cross-validation, perturbation testing)
+- Analysis approaches with falsifiable claims
+- Findings with confidence intervals and limitations
+
+**Key Principle:** AI surfaces structure and quantifies uncertainty; domain experts provide interpretation and validation.
 
 ## Contact & Contributing
 
@@ -101,4 +119,4 @@ We gratefully acknowledge:
 
 ---
 
-**Note:** This is a research fork for computational analysis. It does not modify or challenge the original OKR data. All analysis findings will be published through appropriate academic channels with full acknowledgment of the OKR's foundational role.
+**Note:** This is a research fork for computational analysis. It does not modify or challenge the original OKR data. This project builds **tools for hypothesis testing**, not semantic decipherment. We surface patterns, test falsifiable claims, and quantify uncertainty—interpretation remains the domain of archaeologists, anthropologists, and historians. All findings will be published through appropriate academic channels with full acknowledgment of the OKR's foundational role and prior computational work.
