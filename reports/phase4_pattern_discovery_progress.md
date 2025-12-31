@@ -137,6 +137,128 @@ These khipus represent "gold standard" examples of consistent summation encoding
 
 ---
 
+### 3. Graph Similarity Analysis
+
+**Objective:** Compute pairwise structural similarity between khipus to enable clustering and identify structurally similar khipus.
+
+**Methodology:**
+- Extracted 14 structural features from each graph (nodes, edges, depth, branching, etc.)
+- Normalized features using StandardScaler
+- Computed pairwise cosine similarity between all khipu pairs
+- Identified most similar khipu pairs
+
+**Key Findings:**
+
+#### Similarity Statistics
+
+| Metric | Value |
+|--------|-------|
+| **Total comparisons** | 191,091 pairs |
+| **Mean similarity** | 0.065 |
+| **Median similarity** | 0.040 |
+| **Max similarity** | 1.000 (perfect matches) |
+| **Min similarity** | -0.953 (very dissimilar) |
+| **Std deviation** | 0.494 |
+
+**Interpretation:** The low mean/median similarity (0.065/0.040) indicates that **most khipus are structurally quite different** from each other. This high diversity suggests:
+- No single "standard" khipu template dominates the dataset
+- Khipus were customized for specific recording needs
+- Multiple distinct khipu-making traditions or purposes
+
+#### Perfect Structural Matches
+
+**Found 61 khipu pairs** with perfect similarity (1.000), including:
+- Khipu 1000001 ↔ 1000632, 1000653
+- Khipu 1000036 ↔ 1000116, 1000123
+- Khipu 1000072 ↔ 1000252
+- Khipu 1000078 ↔ 1000440, 1000480
+
+**Interpretation:** These perfect matches suggest:
+- Possible duplicate records or different sections of same khipu
+- Standardized templates for specific record types
+- Same accountant or workshop traditions
+
+**Output Files:**
+- `data/processed/graph_structural_features.csv` (619 khipus, 14 features)
+- `data/processed/graph_similarity_matrix.csv` (619×619 similarity matrix)
+- `data/processed/most_similar_khipu_pairs.csv` (top 20 pairs)
+- `data/processed/graph_similarity_analysis.json` (statistics)
+
+---
+
+### 4. Clustering Analysis
+
+**Objective:** Group khipus into clusters based on structural similarity to identify common patterns and archetypes.
+
+**Methodology:**
+- Used K-means clustering with k=3-10 (evaluated by silhouette score)
+- Performed hierarchical clustering for comparison
+- Analyzed cluster characteristics (size, depth, branching, numeric coverage)
+- Mapped clusters to geographic provenances
+- Generated PCA visualization (2 components, 61.8% variance explained)
+
+**Key Findings:**
+
+#### Optimal Clustering: K=7
+
+**Best silhouette score: 0.3692** (K-means with k=7)
+
+**Cluster Characteristics:**
+
+| Cluster | Size | Avg Nodes | Avg Depth | Avg Branching | Numeric Coverage | Interpretation |
+|---------|------|-----------|-----------|---------------|------------------|----------------|
+| **0** | 80 | 269.0 | 3.0 | 6.3 | 73.2% | **Large, deep khipus** - Complex hierarchical records |
+| **1** | 76 | 7.6 | 1.3 | 5.5 | 70.7% | **Small, simple khipus** - Basic records |
+| **2** | 48 | 124.4 | 1.2 | 107.2 | 77.0% | **Wide, shallow khipus** - Many parallel pendants |
+| **3** | 387 | 48.5 | 2.0 | 12.0 | 74.5% | **Medium khipus** - Most common type (63.2%) |
+| **4** | 6 | 1057.8 | 3.0 | 11.0 | 41.8% | **Very large khipus** - Massive records, low numeric data |
+| **5** | 3 | 296.7 | 3.7 | 2.5 | 66.8% | **Deep, narrow khipus** - Unusual structure |
+| **6** | 12 | 79.2 | 1.3 | 64.2 | 9.3% | **Wide, non-numeric khipus** - Likely categorical |
+
+#### Key Observations
+
+1. **Cluster 3 is dominant:** 387 khipus (63.2%) fall into the "medium" category
+   - Avg 48.5 nodes, depth 2.0, branching 12.0
+   - Represents the "typical" khipu structure
+   - 74.5% numeric coverage
+
+2. **Cluster 6 is distinctive:** 12 khipus with only 9.3% numeric coverage
+   - Very wide (avg branching 64.2)
+   - Likely encode categorical or narrative information
+   - Different purpose than accounting khipus
+
+3. **Cluster 4 are outliers:** Only 6 khipus, but extremely large (>1000 nodes)
+   - Much lower numeric coverage (41.8%)
+   - May be censuses or comprehensive inventories
+   - Includes complex multi-section records
+
+4. **Size-structure correlation:**
+   - Large khipus tend to be deep (Clusters 0, 4, 5)
+   - Small khipus tend to be shallow (Cluster 1)
+   - Exception: Cluster 2 (wide but shallow)
+
+#### Geographic Distribution
+
+**Clusters show some provenance concentration:**
+
+- **Cluster 0** (large, deep): Incahuasi (17.5%), Pachacamac (11.2%), Leymebamba (11.2%)
+- **Cluster 1** (small, simple): Unknown provenance dominant (36.8%)
+- **Cluster 2** (wide, shallow): Unknown (43.8%), Pachacamac (20.8%)
+- **Cluster 3** (medium, common): Pachacamac (16.8%), Unknown (24.3%)
+
+**Interpretation:** While there's some geographic clustering, **no strong provenance-specific patterns emerge**. Khipu structures appear more related to recording purpose than geographic origin, suggesting:
+- Empire-wide standardization of khipu conventions
+- Recording needs (not regional traditions) drove structural design
+- Need for content-based rather than geography-based clustering
+
+**Output Files:**
+- `data/processed/cluster_assignments_kmeans.csv` (612 khipus)
+- `data/processed/cluster_statistics_kmeans.json` (7 clusters)
+- `data/processed/cluster_assignments_hierarchical.csv` (612 khipus, alternative clustering)
+- `data/processed/cluster_pca_coordinates.csv` (visualization coordinates)
+
+---
+
 ## Implications
 
 ### For Khipu Studies
@@ -160,10 +282,26 @@ These khipus represent "gold standard" examples of consistent summation encoding
    - Deep hierarchies (4+ levels) exist but are rare
    - Hierarchical summation may be reserved for complex multi-category accounting
 
+5. **Structural diversity is high:**
+   - Mean similarity only 0.065 (very low)
+   - No dominant khipu template across dataset
+   - Suggests customization for specific recording needs
+
+6. **Seven structural archetypes identified:**
+   - Medium khipus (63.2%) are the dominant type
+   - Specialized types: very large (1%), wide-shallow (7.8%), non-numeric (2%)
+   - Structure correlates more with purpose than geography
+
+7. **Geographic standardization:**
+   - Weak provenance-specific clustering
+   - Suggests empire-wide conventions
+   - Recording function > regional tradition
+
 ### For Pattern Discovery
 
 1. **Template extraction is feasible:**
    - 4 template khipus identified with perfect summation and good documentation
+   - 61 khipu pairs with perfect structural similarity
    - Can serve as training examples for pattern mining
    - Enable supervised learning approaches
 
@@ -171,30 +309,43 @@ These khipus represent "gold standard" examples of consistent summation encoding
    - White cord count alone is insufficient for predicting summation consistency
    - Hierarchy depth + numeric coverage may be better predictors
    - Need to combine multiple structural features
+   - 14-feature vector captures key structural properties
 
-3. **Clustering strategy:**
-   - Should cluster by summation consistency + hierarchy depth
-   - Separate clusters for single-level vs multi-level summation khipus
-   - White cord usage should be a separate clustering dimension
+3. **Clustering strategy validated:**
+   - K=7 optimal for structural clustering (silhouette 0.3692)
+   - Clusters represent meaningful archetypes (size, depth, purpose)
+   - Cluster 6 (low numeric coverage) distinct from accounting khipus
+   - Should cluster by summation consistency + hierarchy depth + purpose
 
----
+4. **Similarity metrics effective:**
+   - Cosine similarity on normalized features works well
+   - Low mean similarity (0.065) confirms high diversity
+   ~~**Graph similarity metrics**~~ ✅ **COMPLETE** - Computed structural similarity between khipus
+   - 191,091 pairwise comparisons
+   - Mean similarity: 0.065 (high diversity)
+   - 61 perfect matches identified
 
-## Next Steps
+2. ~~**Clustering analysis**~~ ✅ **COMPLETE** - Grouped khipus by structural patterns
+   - K=7 optimal clusters (silhouette 0.3692)
+   - 7 structural archetypes identified
+   - Medium khipus (n=387) are dominant type
 
-### Immediate (Phase 4 continuation)
+3. **Motif mining** 📋 **PENDING** - Identify recurring subgraph patterns:
+   - Common cord arrangements
+   - Repeated summation structures
+   - Color pattern motifs
+   - Position-based patterns
 
-1. **Graph similarity metrics** - Compute structural similarity between khipus using:
-   - Graph edit distance
-   - Subgraph isomorphism
-   - Graph kernels for embedding
-   - NetworkX graphs built in Phase 2
+4. **Geographic correlation** 📋 **PENDING** - Map patterns to provenance:
+   - Test for provenance-specific structures
+   - Correlate clusters with geographic regions
+   - Analyze temporal patterns if dates available
 
-2. **Clustering analysis** - Group khipus by:
-   - Summation patterns (single vs multi-level)
-   - Hierarchical structure (depth, branching)
-   - White cord usage patterns
-   - Geographic provenance
-
+5. **Template analysis** 📋 **PENDING** - Deep dive on perfect-match khipus:
+   - Extract structural templates from 61 matched pairs
+   - Test if templates apply to other khipus
+   - Identify variants and deviations
+   - Characterize the 4 perfect-summation template
 3. **Motif mining** - Identify recurring subgraph patterns:
    - Common cord arrangements
    - Repeated summation structures
@@ -265,5 +416,5 @@ These khipus represent "gold standard" examples of consistent summation encoding
 
 **Report Generated:** December 31, 2025  
 **Phase Status:** 🔄 IN PROGRESS  
-**Analyses Complete:** 2/6 planned  
-**Next Analysis:** Graph similarity metrics
+**Analyses Complete:** 4/7 planned  
+**Next Analysis:** Subgraph motif mining

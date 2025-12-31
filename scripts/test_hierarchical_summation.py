@@ -304,7 +304,6 @@ class HierarchicalSummationTester:
 if __name__ == "__main__":
     # Need to create a view or load cord_numeric_values into database
     # For now, load from CSV
-    import sys
     
     # Load cord numeric values
     print("Loading cord numeric values...")
