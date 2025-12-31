@@ -31,10 +31,14 @@ This repository is a research fork focused on **computational hypothesis-testing
 - ✅ **Phase 2: Extraction Infrastructure** - Cord/knot extractors with validation hooks (COMPLETE)
   - Cord hierarchy extractor: 54,403 cords, 16.9% missing attachments, avg confidence 0.949
   - Knot data extractor: 110,151 knots, 95.2% with numeric values, avg confidence 0.896
-  - Exported: cord_hierarchy.csv, knot_data.csv with metadata
+  - Color extractor: 56,306 color records, 15,125 white cords (26.8%), RGB mappings
+  - Graph builder: 619 NetworkX graphs, 55,028 nodes, 54,403 edges
+  - Exported: cord_hierarchy.csv, knot_data.csv, color_data.csv, white_cords.csv, khipu_graphs.pkl
 - ✅ **Phase 3: Summation Hypothesis Testing** - Test white cord boundaries, pendant sum patterns (COMPLETE)
   - Tested all 619 khipus for pendant-to-parent summation patterns
-  - Identified white cord boundary markers across dataset
+  - 74.2% of khipus exhibit summation relationships (459/619)
+  - White cords confirmed as boundary markers (+9.1% higher match rates)
+  - Identified white cord boundary markers across dataset (454 khipus, 73.3%)
   - Exported: summation_test_results.csv with detailed analysis
 - 📋 **Phase 4: Pattern Discovery** - Clustering and motif mining with provenance-aware constraints
 - 📋 **Phase 5: Multi-Model Framework** - Hypothesis evaluation with uncertainty quantification
@@ -102,9 +106,20 @@ This research fork maintains the **MIT License** of the original OKR.
 Copyright (c) 2022 Open Khipu Repository Team (original data)  
 Copyright (c) 2025 Agustín Da Fieno Delucchi (computational methods)
 
+## Reports & Documentation
+
+Comprehensive phase reports are available in [reports/](reports/):
+
+- **[Quick Start Guide](reports/QUICK_START.md)** - New to the project? Start here!
+- **[Project Progress Summary](reports/PROJECT_PROGRESS_SUMMARY.md)** - Complete overview of all completed work
+- **[Phase 0: Reconnaissance](reports/phase0_reconnaissance_report.md)** - Database analysis (619 khipus, 24 tables)
+- **[Phase 1: Baseline Validation](reports/phase1_baseline_validation_report.md)** - Numeric decoding (95.8% success)
+- **[Phase 2: Extraction Infrastructure](reports/phase2_extraction_infrastructure_report.md)** - Extractors & graphs (55K nodes)
+- **[Phase 3: Summation Testing](reports/phase3_summation_testing_report.md)** - Hypothesis validation (74.2% summation)
+
 ## Research Methodology
 
-See [docs/methodology/](docs/methodology/) for detailed documentation of:
+See [docs/methodology/](docs/methodology/) and [reports/](reports/) for detailed documentation of:
 - Database structure and semantics
 - Data quality assessments and uncertainty quantification
 - Validation strategies and expert-in-the-loop checkpoints

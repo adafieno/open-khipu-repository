@@ -73,7 +73,7 @@ def main():
     
     # Export white cords specifically for boundary analysis
     white_output_path = output_dir / "white_cords.csv"
-    print(f"Exporting white cord data for boundary analysis...")
+    print("Exporting white cord data for boundary analysis...")
     white_cords.to_csv(white_output_path, index=False)
     print(f"✓ Exported {len(white_cords):,} white cord records to:")
     print(f"  {white_output_path}")
@@ -83,7 +83,7 @@ def main():
     print("EXTRACTION COMPLETE")
     print("=" * 80)
     print()
-    print(f"Generated files:")
+    print("Generated files:")
     print(f"  {output_path}")
     print(f"  {white_output_path}")
     print()

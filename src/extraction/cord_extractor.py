@@ -119,7 +119,7 @@ class CordExtractor:
         # Calculate confidence score
         print("  Calculating confidence scores...")
         df['confidence'] = self._calculate_cord_confidence(df)
-        print(f"  ✓ Processing complete")
+        print("  ✓ Processing complete")
         
         return df
     

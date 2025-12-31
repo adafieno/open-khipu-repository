@@ -5,7 +5,7 @@
 
 ## Executive Summary
 
-The OKR database contains **619 khipus** with detailed structural, numeric, and color information encoded across 24 tables with over 280,000 records. The data is well-structured for hierarchical graph representation, with strong support for your proposed decipherment approach.
+The OKR database contains **619 khipus** with detailed structural, numeric, and color information encoded across 24 tables with over 280,000 records. The data is well-structured for hierarchical graph representation.
 
 ## Database Overview
 
@@ -295,4 +295,4 @@ LL = double long
 - ⚠️ Need domain expert validation for numeric conventions
 - ⚠️ Small dataset by modern ML standards (but adequate for symbolic methods)
 
-**Recommendation:** Your proposed approach is well-aligned with the data structure. Proceed with Phase 1 infrastructure development.
+**Recommendation:** The proposed approach is well-aligned with the data structure. Proceed with Phase 1 infrastructure development.
