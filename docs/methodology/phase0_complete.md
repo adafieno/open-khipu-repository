@@ -21,7 +21,8 @@
 ### 3. Data Quality Report Generated
 - ✅ Comprehensive reconnaissance report in `reports/phase0_reconnaissance_report.md`
 - ✅ Key findings:
-  - 619 khipus total
+  - 619 khipus in original dataset
+  - 612 khipus with cord data (7 empty records filtered out)
   - 54,403 cords (hierarchical structure clear)
   - 110,677 knots (numeric encoding well-represented)
   - 56,306 color records (rich multi-color data)

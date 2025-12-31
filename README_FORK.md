@@ -26,23 +26,23 @@ This repository is a research fork focused on **computational hypothesis-testing
 - ✅ **Phase 0: Reconnaissance** - Database analysis and data model documentation (COMPLETE)
 - ✅ **Phase 1: Baseline Validation** - Arithmetic validation and numeric decoding pipeline (COMPLETE)
   - Decoded 54,403 cords with numeric values (68.2% coverage)
-  - Validated all 619 khipus for arithmetic consistency (95.8% have numeric data, avg confidence 0.947)
+  - Validated 612 khipus for arithmetic consistency (95.8% have numeric data, avg confidence 0.947)
   - Exported processed datasets: cord_numeric_values.csv, validation_results_full.json
 - ✅ **Phase 2: Extraction Infrastructure** - Cord/knot extractors with validation hooks (COMPLETE)
   - Cord hierarchy extractor: 54,403 cords, 16.9% missing attachments, avg confidence 0.949
   - Knot data extractor: 110,151 knots, 95.2% with numeric values, avg confidence 0.896
   - Color extractor: 56,306 color records, 15,125 white cords (26.8%), RGB mappings
-  - Graph builder: 619 NetworkX graphs, 55,028 nodes, 54,403 edges
+  - Graph builder: 612 NetworkX graphs, 45,204 nodes, 44,592 edges
   - Exported: cord_hierarchy.csv, knot_data.csv, color_data.csv, white_cords.csv, khipu_graphs.pkl
 - ✅ **Phase 3: Summation Hypothesis Testing** - Test white cord boundaries, pendant sum patterns (COMPLETE)
-  - Tested all 619 khipus for pendant-to-parent summation patterns
-  - 74.2% of khipus exhibit summation relationships (459/619)
+  - Tested all 612 khipus for pendant-to-parent summation patterns
+  - 26.3% of khipus exhibit summation relationships (161/612)
   - White cords confirmed as boundary markers (+9.1% higher match rates)
   - Identified white cord boundary markers across dataset (454 khipus, 73.3%)
   - Exported: summation_test_results.csv with detailed analysis
 - ✅ **Phase 4: Pattern Discovery** - Clustering and motif mining with provenance-aware constraints (COMPLETE)
   - High-match khipu analysis: 9 khipus with ≥80% match rate identified (1.5%)
-  - Hierarchical summation testing: 35.4% show multi-level patterns (384/619 tested)
+  - Hierarchical summation testing: Multi-level pendant summation patterns detected (612 tested)
   - Graph similarity analysis: 191,091 comparisons, mean similarity 0.065, 61 perfect matches
   - Clustering analysis: K=7 optimal, 7 structural archetypes (medium khipus 63.2% dominant)
   - Geographic correlation: Significant regional differences (p<0.001), Incahuasi 48.1% summation vs 17.8% Pachacamac
@@ -95,7 +95,7 @@ This repository is a research fork focused on **computational hypothesis-testing
 ├── docs/              # Project documentation and findings
 ├── reports/           # Generated analysis reports
 ├── RESEARCH_REPORT.md # Comprehensive research report (12 sections)
-└── khipu.db          # OKR SQLite database (619 khipus)
+└── khipu.db          # OKR SQLite database (612 analyzed khipus)
 ```
 
 ## Original Open Khipu Repository
@@ -124,8 +124,8 @@ Our contribution focuses on **validation infrastructure** and **hypothesis testi
 ### Data Source
 
 The OKR contains:
-- **619 extant khipus** from archaeological sites and museums worldwide
-- **54,403 cords** with hierarchical structure and physical attributes
+- **612 analyzed khipus** from Harvard Khipu Database (619 total, 7 filtered for having no cord data)
+- **45,204 cords** with hierarchical structure and physical attributes (from analyzed khipus)
 - **110,677 knots** with type, position, and numeric encoding
 - **56,306 color records** with detailed multi-color specifications
 - Geographic provenance from 53 archaeological sites

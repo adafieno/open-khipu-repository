@@ -7,7 +7,7 @@ The OKR database uses a relational model to capture the hierarchical, spatial, a
 ## Table Relationships
 
 ```
-khipu_main (619)
+khipu_main (619 original, 612 analyzed)
     ↓ 1:N
 primary_cord (633)
     ↓ 1:N

@@ -5,12 +5,12 @@
 
 ## Executive Summary
 
-The OKR database contains **619 khipus** with detailed structural, numeric, and color information encoded across 24 tables with over 280,000 records. The data is well-structured for hierarchical graph representation.
+The OKR database contains **619 khipus** in the original dataset, with **612 valid khipus** containing cord data used for analysis. Detailed structural, numeric, and color information is encoded across 24 tables with over 280,000 records. The data is well-structured for hierarchical graph representation.
 
 ## Database Overview
 
 ### Core Data Volume
-- **619 unique khipus** (khipu_main)
+- **619 unique khipus** in original dataset (612 with cord data analyzed)
 - **54,403 cords** (cord)
 - **110,677 knots** (knot)
 - **56,306 color records** (ascher_cord_color)
@@ -28,7 +28,7 @@ The OKR database contains **619 khipus** with detailed structural, numeric, and 
 - NOTES (narrative descriptions)
 
 **Data Quality:**
-- Complete records: 84.3% (522/619)
+- Complete records: 84.3% (522/619 original dataset)
 - Missing values primarily in dates and condition fields
 
 #### 2. **primary_cord** - Main Cord Structure
@@ -281,7 +281,7 @@ LL = double long
 **Rating: 8.5/10 - Highly Viable**
 
 **Positive Indicators:**
-- ✅ Sufficient volume (619 khipus, 54K cords)
+- ✅ Sufficient volume (612 analyzed khipus, 45K cords)
 - ✅ Structured hierarchy (graph-ready)
 - ✅ Rich multi-modal data (numeric, color, spatial)
 - ✅ Well-documented encoding conventions

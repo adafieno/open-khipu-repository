@@ -2,14 +2,14 @@
 
 **Project**: Open Khipu Repository Analysis  
 **Date**: December 31, 2025  
-**Dataset**: 619 khipus from Harvard Khipu Database  
+**Dataset**: 612 khipus from Harvard Khipu Database (619 original, 7 filtered for no nodes)  
 **Approach**: Multi-phase pattern discovery and hypothesis testing
 
 ---
 
 ## Executive Summary
 
-This computational analysis of 619 khipu records reveals:
+This computational analysis of 612 khipu records reveals:
 
 1. **Seven Distinct Khipu Archetypes** identified through hierarchical clustering (7 clusters with 61.8% variance explained)
 2. **Strong Geographic Patterns**: Incahuasi khipus show 2.7× higher summation rates (48.1%) than Pachacamac (17.8%)
@@ -31,8 +31,9 @@ This computational analysis of 619 khipu records reveals:
 ### 1.1 Data Pipeline
 
 **Phase 0: Data Extraction**
-- Source: Harvard Khipu Database (619 khipus, 56,306 cords)
-- Extracted: Hierarchical structure, color data (18 columns), numeric values
+- Source: Harvard Khipu Database (619 khipus in original dataset)
+- Filtered: 612 valid khipus with cord data (7 empty records excluded)
+- Extracted: Hierarchical structure, color data (18 columns), numeric values (45,204 cords)
 - Validation: 100% cord-parent relationship integrity
 
 **Phase 1: Graph Construction**
@@ -43,7 +44,7 @@ This computational analysis of 619 khipu records reveals:
 **Phase 2: Summation Testing** (Medrano & Khosla 2024)
 - Tested: Pendant-to-parent summation patterns (±1 tolerance)
 - White boundary detection: 14,882 white cords identified
-- Results: 161/619 khipus (26.0%) show summation patterns
+- Results: 161/612 khipus (26.3%) show summation patterns
 
 **Phase 3: Unsupervised Learning**
 - Clustering: K-means (k=7) on normalized structural features
@@ -244,7 +245,7 @@ Most common universal motif: `(1, (0,), True, 1)`
 
 ### 5.1 Overall Patterns
 
-**Total khipus tested**: 619  
+**Total khipus tested**: 612  
 **Khipus with pendant summation**: 161 (26.0%)  
 **Average match rate**: 0.087 (8.7%)  
 **Khipus with >50% match rate**: 29 (4.7%)  
@@ -265,7 +266,7 @@ Most common universal motif: `(1, (0,), True, 1)`
 - Correlate with white boundary usage
 
 **Low-match khipus** (<0.1 match rate):
-- Majority of corpus (574/619, 92.7%)
+- Majority of corpus (574/612, 93.8%)
 - May use alternative encoding schemes:
   - Modulo-10 arithmetic
   - Positional encoding (base 10)
@@ -344,7 +345,7 @@ Most common universal motif: `(1, (0,), True, 1)`
 
 ### 8.1 Data Quality
 
-- **Provenance**: 172/619 khipus (27.8%) have empty/unknown provenance
+- **Provenance**: 172/612 khipus (28.1%) have empty/unknown provenance
 - **Preservation**: Cord damage, knot decay may affect numeric value accuracy
 - **Digitization**: OCR-like extraction may introduce errors in color/value interpretation
 - **Sample bias**: Harvard collection may not represent full Inka khipu diversity
