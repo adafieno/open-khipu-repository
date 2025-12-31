@@ -32,7 +32,10 @@ This repository is a research fork focused on **computational hypothesis-testing
   - Cord hierarchy extractor: 54,403 cords, 16.9% missing attachments, avg confidence 0.949
   - Knot data extractor: 110,151 knots, 95.2% with numeric values, avg confidence 0.896
   - Exported: cord_hierarchy.csv, knot_data.csv with metadata
-- 📋 **Phase 3: Summation Hypothesis Testing** - Test white cord boundaries, pendant sum patterns
+- ✅ **Phase 3: Summation Hypothesis Testing** - Test white cord boundaries, pendant sum patterns (COMPLETE)
+  - Tested all 619 khipus for pendant-to-parent summation patterns
+  - Identified white cord boundary markers across dataset
+  - Exported: summation_test_results.csv with detailed analysis
 - 📋 **Phase 4: Pattern Discovery** - Clustering and motif mining with provenance-aware constraints
 - 📋 **Phase 5: Multi-Model Framework** - Hypothesis evaluation with uncertainty quantification
 
@@ -97,7 +100,7 @@ If you use this research fork, please cite both:
 This research fork maintains the **MIT License** of the original OKR.
 
 Copyright (c) 2022 Open Khipu Repository Team (original data)  
-Copyright (c) 2025 [Research Project Team] (computational methods)
+Copyright (c) 2025 Agustín Da Fieno Delucchi (computational methods)
 
 ## Research Methodology
 
@@ -116,7 +119,7 @@ See [docs/methodology/](docs/methodology/) for detailed documentation of:
 
 This is an active research project. For questions about:
 - **Original OKR data:** Contact okr-team@googlegroups.com
-- **This research fork:** [Your contact information]
+- **This research fork:** Agustín Da Fieno Delucchi (adafieno@hotmail.com)
 
 ## Acknowledgments
 
