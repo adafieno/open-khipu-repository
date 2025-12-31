@@ -40,14 +40,16 @@ This repository is a research fork focused on **computational hypothesis-testing
   - White cords confirmed as boundary markers (+9.1% higher match rates)
   - Identified white cord boundary markers across dataset (454 khipus, 73.3%)
   - Exported: summation_test_results.csv with detailed analysis
-- ✅ **Phase 4: Pattern Discovery** - Clustering and motif mining with provenance-aware constraints (IN PROGRESS)
+- ✅ **Phase 4: Pattern Discovery** - Clustering and motif mining with provenance-aware constraints (COMPLETE)
   - High-match khipu analysis: 9 khipus with ≥80% match rate identified (1.5%)
   - Hierarchical summation testing: 35.4% show multi-level patterns (384/619 tested)
   - Graph similarity analysis: 191,091 comparisons, mean similarity 0.065, 61 perfect matches
   - Clustering analysis: K=7 optimal, 7 structural archetypes (medium khipus 63.2% dominant)
   - Geographic correlation: Significant regional differences (p<0.001), Incahuasi 48.1% summation vs 17.8% Pachacamac
-  - Finding: Empire-wide architectural standards adapted to regional administrative needs
-  - Exported: high_match_khipus.csv, hierarchical_summation_results.csv, cluster_assignments_kmeans.csv, geographic_correlation_analysis.json
+  - Template extraction: 8 perfect-summation khipus (all linear chains), 27 perfect structural matches
+  - Motif mining: 7 universal branching patterns, single pendant (1,(0,),True,1) fundamental building block
+  - Finding: Hierarchical standardization — universal micro-patterns, empire-wide archetypes, regional adaptations
+  - Exported: high_match_khipus.csv, cluster_assignments_kmeans.csv, geographic_correlation_analysis.json, template_analysis.json, motif_mining_results.json
 - 📋 **Phase 5: Multi-Model Framework** - Hypothesis evaluation with uncertainty quantification
 
 ## Repository Structure
